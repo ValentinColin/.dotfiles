@@ -17,10 +17,8 @@ alias ll="ls -al -FG"
 
 ### Raccourci d'ouverture de dossier dans le finder
 alias isep="open ~/Dossier\ ISEP/A1"
-alias app="open /Applications/MAMP/htdocs/APP_Humbie"
-alias app-git="open ~/Github/APP_Humbie"
 alias thales="cd ~/Dossiers\ PRO/THALES/Algo-Thales"
-alias rc="open ~/.zshrc"
+alias rc="open ~/git/.dotfiles/"
 
 ### Internet
 # $1 doit être un url
@@ -47,3 +45,4 @@ cdAndls ()
     ls
 }
 alias cdl=cdAndls
+alias g=cdAndls
