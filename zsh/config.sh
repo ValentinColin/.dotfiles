@@ -125,22 +125,3 @@ TERM=xterm-256color             # Colorz!
 # export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 # export EDITOR=vim				# Meh.
 
-#########################################
-### Importe tous les fichiers d'alias ###
-#########################################
-
-for file in ~/git/.dotfiles/*/aliases.sh; do
-  source "$file"
-done
-
-### -> Explicit Aliases:
-if false; then
-   source ~/.dotfiles/zsh/explicit_aliases.sh
-fi
-
-### -> fonction de troll
-if false; then
-   source ~/.dotfiles/troll/troll.sh
-fi
-alias troll="source ~/.dotfiles/troll/troll.sh"
-#source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
