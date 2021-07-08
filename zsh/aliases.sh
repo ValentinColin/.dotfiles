@@ -4,9 +4,9 @@
 OS=$(uname -s)
 
 if [ $OS = "Linux" ]; then
-	echo "Alias Linux update"
+	echo "Config Linux activate"
 elif [ $OS = "Darwin" ]; then
-	echo "Alias MacOS update"
+	echo "Config MacOS activate"
 fi
 
 #######################
@@ -20,17 +20,19 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
 ### Raccourci terminal
-alias la="ls -a"
+alias ls="ls -F --color=auto"
+alias la="ls -a -F"
 alias ll="ls -al -FG"
 alias reload="exec $SHELL"
 alias quit=exit
 
 ### Raccourci d'ouverture de dossier dans le finder
 if [ "$OS" = "Linux" ]; then
-	alias finder="nautilus ."
+	alias finder=nautilus
+	#alias finder="nautilus ."
 	alias rc="nautilus ~/git/.dotfiles/"
 elif [ "$OS" = "Darwin" ]; then
-	alias finder="open ."
+	alias finder="open $1"
 	alias rc="open ~/git/.dotfiles/"
 	
 	alias isep="open ~/Dossier\ ISEP/A1"
