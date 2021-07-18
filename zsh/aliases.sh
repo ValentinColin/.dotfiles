@@ -20,7 +20,11 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
 ### Raccourci terminal
-alias ls="ls -F --color=auto"
+if [ "$OS" = "Linux" ]; then
+	alias ls="ls -F --color=auto"
+elif [ "$OS" = "Darwin" ]; then
+	alias ls="ls -F"
+fi
 alias la="ls -a -F"
 alias ll="ls -al -FG"
 alias reload="exec $SHELL"
