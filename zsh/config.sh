@@ -1,3 +1,9 @@
+##################
+### Paramètres ###
+##################
+OS=$(uname -s)
+
+
 autoload -U colors select-word-style
 colors          		# colours
 select-word-style bash 	# ctrl+w on words
@@ -6,7 +12,7 @@ select-word-style bash 	# ctrl+w on words
 ### PROMPT ZSH ###
 ##################
 
-setopt PROMPT_SUBST     # allow funky stuff in prompt
+setopt PROMPT_SUBST     # allow funky stuff in prompt and the uses of vcs_info
 color="yellow"
 if [ "$USER" = "root" ]; then
     color="red"         # root is red, user is yellow
@@ -118,7 +124,7 @@ unsetopt ignore_eof             # do not exit on end-of-file
 unsetopt list_beep              # no bell on ambiguous completion
 unsetopt rm_star_silent         # ask for confirmation for `rm *' or `rm path/*'
 # setxkbmap -option compose:ralt  # compose-key
-print -Pn "\e]0; %n@%m: %~\a"   	# terminal title
+print -Pn "\e]0; [%{$OS%}] %n@%m \a"   # terminal title
 TERM=xterm-256color             # Colorz!
 # export GCC_COLORS=1				# Colorz in gcc!
 # unset LD_PRELOAD				# Meh.
