@@ -17,7 +17,7 @@ color="yellow"
 if [ "$USER" = "root" ]; then
     color="red"         # root is red, user is yellow
 fi;
-prompt="%{$fg[$color]%}%n%{$reset_color%}%{$reset_color%} %B%~%b $ "
+prompt="%{$fg[$color]%}%n@%m%{$reset_color%}%{$reset_color%} %B%~%b $ "
 RPROMPT='${vcs_info_msg_0_}'
 
 ####################

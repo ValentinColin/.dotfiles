@@ -4,9 +4,9 @@
 OS=$(uname -s)
 
 if [ $OS = "Linux" ]; then
-	echo "Config Linux activate"
+	echo "Config Linux activated"
 elif [ $OS = "Darwin" ]; then
-	echo "Config MacOS activate"
+	echo "Config MacOS activated"
 fi
 
 #######################
