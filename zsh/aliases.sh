@@ -31,7 +31,8 @@ alias .....="cd ../../../.."
 # Nouveau alias avec exa au lieu de ls
 alias ls="exa --classify"
 alias la="exa --classify --all"
-alias ll="exa --classify --all --long --header --group --git --icons"
+alias ll="exa --classify --long --header --group --git --icons"
+alias lla="exa --classify --all --long --header --group --git --icons"
 
 alias tree="exa --tree"
 
