@@ -124,7 +124,10 @@ unsetopt ignore_eof             # do not exit on end-of-file
 unsetopt list_beep              # no bell on ambiguous completion
 unsetopt rm_star_silent         # ask for confirmation for `rm *' or `rm path/*'
 # setxkbmap -option compose:ralt  # compose-key
+
+# TERMINAL TITLE
 print -Pn "\e]0; [%{$OS%}] %n@%m \a"   # terminal title
+
 TERM=xterm-256color             # Colorz!
 # export GCC_COLORS=1				# Colorz in gcc!
 # unset LD_PRELOAD				# Meh.

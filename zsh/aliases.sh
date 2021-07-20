@@ -20,13 +20,21 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
 ### Raccourci terminal
-if [ "$OS" = "Linux" ]; then
-	alias ls="ls -F --color=auto"
-elif [ "$OS" = "Darwin" ]; then
-	alias ls="ls -F"
-fi
-alias la="ls -a -F"
-alias ll="ls -al -FG"
+#if [ "$OS" = "Linux" ]; then
+#	alias ls="ls -F --color=auto"
+#elif [ "$OS" = "Darwin" ]; then
+#	alias ls="ls -F"
+#fi
+#alias la="ls -a -F"
+#alias ll="ls -al -FG"
+
+# Nouveau alias avec exa au lieu de ls
+alias ls="exa --classify"
+alias la="exa --classify --all"
+alias ll="exa --classify --all --long --header --group --git --icons"
+
+alias tree="exa --tree"
+
 alias reload="exec $SHELL"
 alias quit=exit
 
