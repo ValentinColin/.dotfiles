@@ -13,12 +13,20 @@ select-word-style bash 	# ctrl+w on words
 ##################
 
 setopt PROMPT_SUBST     # allow funky stuff in prompt and the uses of vcs_info
-color="yellow"
-if [ "$USER" = "root" ]; then
-    color="red"         # root is red, user is yellow
-fi;
+color="yellow"		# root is red, user is yellow
 prompt="%{$fg[$color]%}%n@%m%{$reset_color%}%{$reset_color%} %B%~%b $ "
 RPROMPT='${vcs_info_msg_0_}'
+
+if [ "$USER" = "root" ]; then
+    #echo "\n!!! WARNING YOU ARE CURRENTLY LOGIN AS THE USER ROOT !!!\n"
+    born2BeRoot=$(cat ~/git/.dotfiles/zsh/born2BeRoot.txt)
+    born2Root=$(cat ~/git/.dotfiles/zsh/born2Root.txt)
+    echo ""
+    echo $born2Root
+    echo ""
+    color="red"         # root is red, user is yellow
+    prompt="%{$fg[$color]%}%n@%m%{$reset_color%}%{$reset_color%} %B%~%b # "
+fi;
 
 ####################
 ### Key bindings ###
@@ -49,7 +57,7 @@ setopt hash_list_all            # hash everything before completion
 setopt always_to_end            # when completing from the middle of a word, move the cursor to the end of the word
 setopt auto_param_slash			# when completing a directory, a slash is added
 setopt complete_in_word         # allow completion from within a word/phrase
-setopt correct                  # spelling correction for commands
+#setopt correct                  # spelling correction for commands
 setopt list_ambiguous           # complete as much of a completion until it gets ambiguous.
 
 zstyle ':completion::complete:*' use-cache on               # completion caching, use rehash to clear
