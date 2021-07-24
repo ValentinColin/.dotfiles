@@ -29,10 +29,10 @@ alias .....="cd ../../../.."
 #alias ll="ls -al -FG"
 
 # Nouveau alias avec exa au lieu de ls
-alias ls="exa --classify"
-alias la="exa --classify --all"
-alias ll="exa --classify --long --header --group --git --icons"
-alias lla="exa --classify --all --long --header --group --git --icons"
+alias ls="exa --classify --icons --group-directories-first"
+alias la="exa --classify --icons --group-directories-first --all"
+alias ll="exa --classify --icons --group-directories-first --long --header --group --git"
+alias lla="exa --classify --icons --group-directories-first --all --long --header --group --git"
 
 alias tree="exa --tree"
 
