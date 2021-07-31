@@ -16,8 +16,7 @@ setopt PROMPT_SUBST     # allow funky stuff in prompt and the uses of vcs_info
 color="yellow"		# root is red, user is yellow
 prompt="%{$fg[$color]%}%n@%m%{$reset_color%} %B%~%b $ "
 RPROMPT='${vcs_info_msg_0_}'
-
-if [ "$USER" = "root" ]; then
+if [ "$(whoami)" = "root" ]; then
     #echo "\n!!! WARNING YOU ARE CURRENTLY LOGIN AS THE USER ROOT !!!\n"
     born2BeRoot=$(cat ~/git/.dotfiles/zsh/born2BeRoot.txt)
     born2Root=$(cat ~/git/.dotfiles/zsh/born2Root.txt)
@@ -141,4 +140,25 @@ TERM=xterm-256color				# Colorz!
 # unset LD_PRELOAD				# Meh.
 # export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 # export EDITOR=vim				# Meh.
+
+#################
+### Theme zsh ###
+#################
+# Antigen
+#ANTIGEN_CACHE=false
+#source ${0:a:h}/antigen.zsh
+# source $DOTFILES_PATH/antigen.zsh
+#
+#antigen theme romkatv/powerlevel10k
+#antigen theme eastwood
+#antigen theme kardan
+#antigen theme nicoulaj
+# antigen theme candy
+# antigen theme robbyrussell
+# antigen bundle zsh-users/zsh-autosuggestions
+#antigen bundle zsh-users/zsh-completions
+#antigen bundle zsh-users/zsh-syntax-highlighting
+#ntigen bundle agkozak/zsh-z
+#antigen bundle soimort/translate-shell
+#antigen apply
 
