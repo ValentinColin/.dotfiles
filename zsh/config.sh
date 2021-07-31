@@ -45,6 +45,8 @@ bindkey '^D'      delete-char			# Del
 bindkey '^E'      end-of-line			# End
 bindkey '^R'      history-incremental-pattern-search-backward
 
+bindkey '^I'      autosuggest-accept		# Tab
+
 ##################
 ### Completion ###
 ##################
@@ -141,24 +143,19 @@ TERM=xterm-256color				# Colorz!
 # export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 # export EDITOR=vim				# Meh.
 
-#################
-### Theme zsh ###
-#################
-# Antigen
-#ANTIGEN_CACHE=false
-#source ${0:a:h}/antigen.zsh
-# source $DOTFILES_PATH/antigen.zsh
-#
-#antigen theme romkatv/powerlevel10k
-#antigen theme eastwood
-#antigen theme kardan
-#antigen theme nicoulaj
-# antigen theme candy
-# antigen theme robbyrussell
-# antigen bundle zsh-users/zsh-autosuggestions
-#antigen bundle zsh-users/zsh-completions
-#antigen bundle zsh-users/zsh-syntax-highlighting
-#ntigen bundle agkozak/zsh-z
-#antigen bundle soimort/translate-shell
-#antigen apply
+###############
+### Antigen ###
+###############
+ANTIGEN_CACHE=false
+source ${0:a:h}/antigen/antigen.zsh
+
+# Bundle
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-completions
+
+antigen bundle zsh-users/zsh-syntax-highlighting
+# style: For example, this would show suggestions with bold, underlined, pink text on a cyan background
+# export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bg=cyan,bold,underline"
+
+antigen apply
 
