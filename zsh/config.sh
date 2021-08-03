@@ -45,7 +45,7 @@ bindkey '^D'      delete-char			# Del
 bindkey '^E'      end-of-line			# End
 bindkey '^R'      history-incremental-pattern-search-backward
 
-bindkey '^I'      autosuggest-accept		# Tab
+# bindkey '^I'      autosuggest-accept		# Tab
 
 ##################
 ### Completion ###
@@ -150,12 +150,10 @@ ANTIGEN_CACHE=false
 source ${0:a:h}/antigen/antigen.zsh
 
 # Bundle
-antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle zsh-users/zsh-completions
+# antigen bundle zsh-users/zsh-completions		# remove good completions, so no
+# antigen bundle zsh-users/zsh-autosuggestions		# not smart
 
 antigen bundle zsh-users/zsh-syntax-highlighting
-# style: For example, this would show suggestions with bold, underlined, pink text on a cyan background
-# export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bg=cyan,bold,underline"
 
 antigen apply
 
