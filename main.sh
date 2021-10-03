@@ -1,7 +1,7 @@
 ############
 ### PATH ###
 ############
-export PATH="$PATH:~/.local/bin"
+export PATH="$PATH:$HOME/.local/bin"
 
 ##############
 ### .zshrc ###
