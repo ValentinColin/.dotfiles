@@ -24,10 +24,18 @@ alias p="git push"
 #alias pp="git push origin $(git rev-parse --abbrev-ref HEAD)"
 
 alias acp=addCommitPush
+alias acps=addCommitPush-signed
 
 addCommitPush ()
 {
     git add --all;
     git commit -m "$1";
+    git push origin $(git rev-parse --abbrev-ref HEAD)
+}
+
+addCommitPush-signed ()
+{
+    git add --all;
+    git commit -S -m "$1";
     git push origin $(git rev-parse --abbrev-ref HEAD)
 }
