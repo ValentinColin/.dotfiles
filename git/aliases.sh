@@ -12,13 +12,15 @@ alias acps=addCommitPush-signed
 addCommitPush-unsigned ()
 {
     git add --all;
-    git commit --message "$1";
+    # git commit --message "$1";
+    python3 ~/git/.dotfiles/git/commit_with_emoji.py "unsigned" "$1"
     git push origin $(git rev-parse --abbrev-ref HEAD)
 }
 
 addCommitPush-signed ()
 {
     git add --all;
-    git commit --gpg-sign --message "$1";
+    # git commit --gpg-sign --message "$1";
+    python3 ~/git/.dotfiles/git/commit_with_emoji.py "signed" "$1"
     git push origin $(git rev-parse --abbrev-ref HEAD)
 }
