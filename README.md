@@ -7,7 +7,7 @@ Configuration de mes dotfiles
 Installer zsh:
 ```sh
 # Linux
-sudo apt-get install zsh
+apt-get install zsh
 # MacOS
 brew install zsh
 ```
@@ -35,7 +35,7 @@ echo -e "source ~/git/.dotfiles/main.sh\n" >> ~/.zshrc
 Et enfin relancer votre terminal pour appliquer les changement,  
 si vous étiez déjà sur zsh, il est suffisant de sourcer le fichier **.zshrc**
 ```sh
-source ~/.zshrc
-# ou
-exec $SHELL
+source ~/.zshrc     # Charger uniquement la config
+                    # ou
+exec $SHELL         # Recharger le shell entier
 ```
