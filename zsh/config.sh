@@ -13,18 +13,19 @@ select-word-style bash 	# ctrl+w on words
 ##################
 
 setopt PROMPT_SUBST     # allow funky stuff in prompt and the uses of vcs_info
-color="yellow"		# root is red, user is yellow
-prompt="%{$fg[$color]%}%n@%m%{$reset_color%} %B%~%b $ "
+color="yellow"		    # root is red, user is yellow
+red="red"
+# Apply the color red bold if the previous cmd failed ($? != 0)
+local red_when_failed="\$(if [ \$? != 0 ]; then echo %{\$fg_bold[\$red]%}; fi)"
+PROMPT="%{$fg[$color]%}%n@%m%{$reset_color%} %B%~%b${red_when_failed} $ %{$reset_color%}"
 RPROMPT='${vcs_info_msg_0_}'
 if [ "$(whoami)" = "root" ]; then
     #echo "\n!!! WARNING YOU ARE CURRENTLY LOGIN AS THE USER ROOT !!!\n"
     born2BeRoot=$(cat ~/git/.dotfiles/zsh/born2BeRoot.txt)
     born2Root=$(cat ~/git/.dotfiles/zsh/born2Root.txt)
-    echo ""
     echo $born2Root
-    echo ""
     color="red"         # root is red, user is yellow
-    prompt="%{$fg[$color]%}%n@%m%{$reset_color%}%{$reset_color%} %B%~%b # "
+    prompt="%{$fg[$color]%}%n@%m%{$reset_color%} %B%~%b${red_when_failed} # %{$reset_color%}"
 fi;
 
 ####################
