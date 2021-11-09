@@ -7,7 +7,7 @@ Configuration de mes dotfiles
 Installer zsh:
 ```sh
 # Linux
-apt-get install zsh
+apt-get -y install zsh
 # MacOS
 brew install zsh
 ```
