@@ -1,6 +1,6 @@
-##################
-### CONFIG MAN ###
-##################
+####################
+### CONFIG SHELL ###
+####################
 
 man () {
     LESS_TERMCAP_md=$'\e[01;31m' \
@@ -23,3 +23,7 @@ man () {
 # ue      rmul      stop underline
 # so      smso      start standout (reverse video)
 # se      rmso      stop standout
+
+set_title () {
+    echo -en "\e]0;$*\a"
+}
