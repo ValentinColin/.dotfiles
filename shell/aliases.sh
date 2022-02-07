@@ -12,8 +12,11 @@ man () {
     command man "$@"
 }
 
+# Liste des groupes
+alias glist="cat /etc/group | awk -F: '{print $ 1}'"
+
 # termcap terminfo
-# ks      smkx      make the keypad send commands
+# ks      smkx      make the keypad send commandsg
 # ke      rmkx      make the keypad send digits
 # vb      flash     emit visual bell
 # mb      blink     start blink
