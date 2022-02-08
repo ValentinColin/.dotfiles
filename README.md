@@ -7,7 +7,7 @@ Configuration de mes dotfiles
 Installer zsh:
 ```sh
 # Linux
-apt-get install zsh
+apt-get -y install zsh
 # MacOS
 brew install zsh
 ```
@@ -21,7 +21,7 @@ chsh -s $(which zsh)
 
 Cloner le projet dans **~/git** (si vous en avez envie):
 ```sh
-git clone https://github.com/ValentinColin/.dotfiles.git ~/git
+git clone https://github.com/ValentinColin/.dotfiles.git ~/git/.dotfiles
 ```
 
 ### Appliquer les changements

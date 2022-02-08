@@ -12,23 +12,27 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
 
 ### Raccourci terminal
-#if [ "$OS" = "Linux" ]; then
-#	alias ls="ls -F --color=auto"
-#elif [ "$OS" = "Darwin" ]; then
-#	alias ls="ls -F"
-#fi
-#alias la="ls -a -F"
-#alias ll="ls -al -FG"
+enable_exa=true
+if [ $enable_exa = "true" ]; then
+	# Remplacement de ls par exa
+	alias ls="exa --classify --icons --group-directories-first"
+	alias la="exa --classify --icons --group-directories-first --all"
+	alias ll="exa --classify --icons --group-directories-first --long --header --group --git"
+	alias lla="exa --classify --icons --group-directories-first --all --long --header --group --git"
 
-# Nouveau alias avec exa au lieu de ls
-alias ls="exa --classify --icons --group-directories-first"
-alias la="exa --classify --icons --group-directories-first --all"
-alias ll="exa --classify --icons --group-directories-first --long --header --group --git"
-alias lla="exa --classify --icons --group-directories-first --all --long --header --group --git"
-
-alias tree="exa --tree"
+	alias tree="exa --tree"
+else
+	if [ "$OS" = "Linux" ]; then
+		alias ls="ls -F --color=auto"
+	elif [ "$OS" = "Darwin" ]; then
+		alias ls="ls -F"
+	fi
+	alias la="ls -a -F"
+	alias ll="ls -al -FG"
+fi
 
 alias reload="exec $SHELL"
 alias quit=exit
