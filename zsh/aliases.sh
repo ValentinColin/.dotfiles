@@ -23,7 +23,7 @@ if [ $enable_exa = "true" ]; then
 	alias ll="exa --classify --icons --group-directories-first --long --header --group --git"
 	alias lla="exa --classify --icons --group-directories-first --all --long --header --group --git"
 
-	alias tree="exa --tree"
+	alias tree="exa --tree --classify"
 else
 	if [ "$OS" = "Linux" ]; then
 		alias ls="ls -F --color=auto"
