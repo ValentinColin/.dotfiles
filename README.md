@@ -1,4 +1,4 @@
-[![](https://tokei.rs/b1/github/XAMPPRocky/tokei)](https://github.com/ValentinColin/.dotfiles).
+[![](https://tokei.rs/b1/github/ValentinColin/.dotfiles)](https://github.com/ValentinColin/.dotfiles).
 
 # My dotfiles
 
