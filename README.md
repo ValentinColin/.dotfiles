@@ -1,3 +1,5 @@
+[![](https://tokei.rs/b1/github/XAMPPRocky/tokei)](https://github.com/ValentinColin/.dotfiles).
+
 # My dotfiles
 
 Configuration de mes dotfiles
