@@ -1,6 +1,6 @@
-[![](https://tokei.rs/b1/github/ValentinColin/.dotfiles)](https://github.com/ValentinColin/.dotfiles).
-
 # My dotfiles
+[![](https://tokei.rs/b1/github/ValentinColin/.dotfiles)](https://github.com/ValentinColin/.dotfiles)
+
 
 Configuration de mes dotfiles
 
