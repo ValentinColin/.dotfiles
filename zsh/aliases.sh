@@ -7,33 +7,15 @@ OS=$(uname -s)
 ### GENERAL ALIASES ###
 #######################
 
-### Easier navigation: .., ..., ...., .....
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
-alias ......="cd ../../../../.."
+# Liste des groupes
+alias glist="cat /etc/group | awk -F: '{print $ 1}' | sort"
+
+# set the title of the terminal
+set_title () {
+    echo -en "\e]0;$*\a"
+}
 
 ### Raccourci terminal
-enable_exa=true
-if [ $enable_exa = "true" ]; then
-	# Remplacement de ls par exa
-	alias ls="exa --classify --icons --group-directories-first"
-	alias la="exa --classify --icons --group-directories-first --all"
-	alias ll="exa --classify --icons --group-directories-first --long --header --group --git"
-	alias lla="exa --classify --icons --group-directories-first --all --long --header --group --git"
-
-	alias tree="exa --tree --classify"
-else
-	if [ "$OS" = "Linux" ]; then
-		alias ls="ls -F --color=auto"
-	elif [ "$OS" = "Darwin" ]; then
-		alias ls="ls -F"
-	fi
-	alias la="ls -a -F"
-	alias ll="ls -al -FG"
-fi
-
 alias reload="exec $SHELL"
 alias quit=exit
 
@@ -82,4 +64,3 @@ cdAndls ()
     ls
 }
 alias cdl=cdAndls
-alias g=cdAndls
