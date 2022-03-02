@@ -15,7 +15,7 @@ fi
 
 ### ls / exa
 enable_exa=true
-enable_exa-tree=true
+enable_exa_tree=true
 if [ $enable_exa = "true" ]; then
 	# Remplacement de ls par exa
 	alias ls="exa --classify --icons --group-directories-first"
@@ -24,7 +24,7 @@ if [ $enable_exa = "true" ]; then
 	alias lla="exa --classify --icons --group-directories-first --all --long --header --group --git"
 
 	# remplacement de tree par celui de exa
-	if [ $enable_exa-tree = "true" ]; then
+	if [ $enable_exa_tree = "true" ]; then
 		alias tree="exa --tree --classify"
 	fi
 else
