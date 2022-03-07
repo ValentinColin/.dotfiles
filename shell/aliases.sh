@@ -1,3 +1,8 @@
+##################
+### Paramètres ###
+##################
+OS=$(uname -s)
+
 #####################
 ### BASIC ALIASES ###
 #####################
@@ -40,7 +45,11 @@ fi
 ### cat / bat
 enable_bat=true
 if [ $enable_bat = "true" ]; then
-	alias bat="batcat --pager 'less -RF'"
+	if [ "$OS" = "Linux" ]; then
+		alias bat="batcat --pager 'less -RF'"
+	elif [ "$OS" = "Darwin" ]; then
+		alias bat="bat --pager 'less -RF'"
+	fi
 	alias cat=bat
 fi
 
