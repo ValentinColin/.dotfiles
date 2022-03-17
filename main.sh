@@ -32,12 +32,8 @@ for alias_file in ~/git/.dotfiles/*/aliases.sh; do
 done
 
 ### -> Explicit Aliases:
-if false; then
-   source ~/git/.dotfiles/zsh/explicit_aliases.sh
-fi
+# source ~/git/.dotfiles/zsh/explicit_aliases.sh
 
 ### -> fonction de troll
-if false; then
-   source ~/git/.dotfiles/troll/troll.sh
-fi
+# source ~/git/.dotfiles/troll/troll.sh
 alias troll="source ~/.dotfiles/troll/troll.sh"
