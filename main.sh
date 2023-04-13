@@ -1,3 +1,8 @@
+#####################
+### MAIN DOTFILES ###
+#####################
+export DOTFILES_PATH=$(dirname "$0")
+
 ############
 ### PATH ###
 ############
@@ -7,7 +12,7 @@ export PATH="$PATH:$HOME/.local/bin"
 ### .zshrc ###
 ##############
 # -> tuto shell: https://doc.ubuntu-fr.org/tutoriel/script_shell
-source ~/git/.dotfiles/zsh/config.sh
+source $DOTFILES_PATH/zsh/config.sh
 
 ###############
 ### GIT/VCS ###

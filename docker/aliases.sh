@@ -7,30 +7,60 @@
 #     dc              : docker compose                                      #
 #     dcu             : docker compose up -d                                #
 #     dcd             : docker compose down                                 #
-#     dex <container> : execute a bash shell inside the RUNNING <container> #
+#     swarm           : docker swarm                                        #
 #     di <container>  : docker inspect <container>                          #
 #     dim             : docker images                                       #
-#     dlc             : docker container list                               #
-#     dln             : docker network list                                 #
-#     dlv             : docker volume list                                  #
-#     dip             : IP addresses of all running containers              #
-#     dl <container>  : docker logs -f <container>                          #
-#     dnames          : names of all running containers                     #
+#     dcl             : docker container list                               #
+#     dnl             : docker network list                                 #
+#     dvl             : docker volume list                                  #
+#     dl              : docker compose logs -f                              #
 #     dps             : docker ps                                           #
 #     dpsa            : docker ps -a                                        #
-#     drmc            : remove all exited containers                        #
+#     dsp             : docker system prune --all                           #
+#     dx <container>  : execute a shell inside the RUNNUNG <container>      #
+#     dnames          : names of all running containers                     #
+#     dip             : IP addresses of all running containers              #
 #     dsr <container> : stop then remove <container>                        #
+#     drmc            : remove all exited containers                        #
 #                                                                           #
 #############################################################################
 
-function dnames-fn {
+alias d=docker
+alias dc="docker compose"
+alias dcu="docker compose up -d"
+alias dcd="docker compose down"
+alias swarm="docker swarm"
+alias di="docker inspect"
+alias dim="docker images"
+alias dcl="docker container list"
+alias dnl="docker network list"
+alias dvl="docker volume list"
+alias dl="docker compose logs -f"
+alias dps="docker ps --format 'table {{.ID}}\t{{.Names}}\t{{.Image}}\t{{.RunningFor}}\t{{.Status}}'"
+alias dpsa="docker ps -a"
+alias dsp="docker system prune --all"
+
+function _trysh() {
+    docker exec $1 which $2 >/dev/null &&
+    echo "docker exec -it $1 $2" &&
+    docker exec -it $1 $2
+}
+
+function dx() {
+    container=`docker ps --format "{{.Names}}" | fzf`
+    for shell in zsh bash sh; do
+        _trysh $container $shell && break
+    done
+}
+
+function dnames {
 	for ID in `docker ps | awk '{print $1}' | grep -v 'CONTAINER'`
 	do
     	docker inspect $ID | grep Name | head -1 | awk '{print $2}' | sed 's/,//g' | sed 's%/%%g' | sed 's/"//g'
 	done
 }
 
-function dip-fn {
+function dip {
     echo "IP addresses of all named running containers"
 
     for DOC in `dnames-fn`
@@ -42,50 +72,10 @@ function dip-fn {
     unset OUT
 }
 
-function dex-fn {
-	docker exec -it $1 ${2:-bash}
-}
-
-function di-fn {
-	docker inspect $1
-}
-
-function dl-fn {
-	docker logs -f $1
-}
-
-function dsr-fn {
+function dsr {
 	docker stop $1;docker rm $1
 }
 
-function drmc-fn {
+function drmc {
        docker rm $(docker ps --all -q -f status=exited)
 }
-
-# in order to do things like dex $(dlab label) sh
-function dlab {
-       docker ps --filter="label=$1" --format="{{.ID}}"
-}
-
-function dc-fn {
-        docker compose $*
-}
-
-alias d=docker
-alias dc=dc-fn
-alias dcu="docker compose up -d"
-alias dcd="docker compose down"
-alias dex=dex-fn
-alias di=di-fn
-alias dim="docker images"
-alias dlc="docker container list"
-alias dln="docker network list"
-alias dlv="docker volume list"
-alias dip=dip-fn
-alias dl=dl-fn
-alias dnames=dnames-fn
-alias dps="docker ps"
-alias dpsa="docker ps -a"
-alias drmc=drmc-fn
-alias dsp="docker system prune --all"
-alias dsr=dsr-fn

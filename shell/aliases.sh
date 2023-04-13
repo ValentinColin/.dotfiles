@@ -13,6 +13,16 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
+
+# Crée un dossier et rentre dedans avec cd
+mcd () {
+	mkdir -p -- "$1" && cd -P -- "$1"
+}
+
+cdl () {
+	cd "$1" && ls
+}
+
 enable_zoxide=false
 if [ $enable_zoxide = "true" ]; then
 	alias cd=zoxide
@@ -21,6 +31,7 @@ fi
 ### ls / exa
 enable_exa=true
 enable_exa_tree=true
+#if [ which exa &>/dev/null ]; then
 if [ $enable_exa = "true" ]; then
 	# Remplacement de ls par exa
 	alias ls="exa --classify --icons --group-directories-first"
@@ -44,16 +55,12 @@ fi
 
 ### cat / bat
 enable_bat=true
+#if [ which bat &>/dev/null ]; then
 if [ $enable_bat = "true" ]; then
-	if [ "$OS" = "Linux" ]; then
-		alias bat="batcat --pager 'less -RF'"
-	elif [ "$OS" = "Darwin" ]; then
-		alias bat="bat --pager 'less -RF'"
-	fi
-	alias cat=bat
+	alias bat="bat --pager 'less -RF'"
 fi
 
-### grep / ripgrep
+### grep / ripgrep (rg)
 enable_ripgrep=false
 if [ $enable_ripgrep = "true" ]; then
 	alias grep=rg
