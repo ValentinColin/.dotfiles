@@ -136,3 +136,5 @@ man () {
 # ue      rmul      stop underline
 # so      smso      start standout (reverse video)
 # se      rmso      stop standout
+
+source aliases2.sh
