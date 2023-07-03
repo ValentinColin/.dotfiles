@@ -137,4 +137,4 @@ man () {
 # so      smso      start standout (reverse video)
 # se      rmso      stop standout
 
-source aliases2.sh
+source $DOTFILES_PATH/shell/aliases2.sh
