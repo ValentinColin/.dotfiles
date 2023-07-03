@@ -51,7 +51,8 @@ bindkey '^R'      history-incremental-pattern-search-backward
 ##################
 ### Completion ###
 ##################
-autoload -U compinit
+fpath+=~/.zfunc
+autoload -Uz compinit
 compinit
 zmodload -i zsh/complist
 setopt completealiases          # complete alisases
