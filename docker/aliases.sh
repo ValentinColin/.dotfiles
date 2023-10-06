@@ -36,7 +36,7 @@ alias dcl="docker container list"
 alias dnl="docker network list"
 alias dvl="docker volume list"
 alias dl="docker compose logs -f"
-alias dps="docker ps --format 'table {{.ID}}\t{{.Names}}\t{{.Image}}\t{{.RunningFor}}\t{{.Status}}'"
+alias dps="docker ps --format 'table {{.ID}}\t{{.Names}}\t{{.Image}}\t{{.State}}\t{{.Status}}'"
 alias dpsa="docker ps -a"
 alias dsp="docker system prune --all"
 
